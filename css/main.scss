@@ -1,0 +1,124 @@
+body,
+p {
+  margin: 0;
+}
+body {
+  height: 3000px;
+}
+
+.alert-box {
+  width: 500px;
+  height: 50px;
+  background-color: aqua;
+  text-align: center;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-radius: 10px;
+  color: rgb(26, 81, 81);
+}
+
+.x-button {
+  background: none;
+  border: 0;
+  color: dimgray;
+  font-size: 20px;
+}
+
+.list-group {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.black-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  padding: 30px;
+  display: none;
+}
+
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.modal-button {
+  background-color: palegreen;
+}
+
+.slide-container {
+  width: 300vw;
+  height: 300px;
+  display: flex;
+  transition: 1s all;
+}
+.slide-box {
+  background-color: rgb(153, 234, 234);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide-top {
+  overflow: hidden;
+}
+
+.top-logo {
+  position: fixed;
+  width: 100%;
+  height: fit-content;
+  z-index: 5;
+  background-color: brown; 
+}
+.top-logo-letter {
+  font-size: 30px;
+  transition: all 1s;
+}
+ul.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+ul.list::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.tab-button {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  float: left;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+.orange {
+  border-top: 2px solid orange;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #ccc;
+  color: black;
+  margin-top: -2px;
+}
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+.show {
+  display: block;
+}
+.hidden {
+  display: none;
+}

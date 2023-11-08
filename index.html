@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./library/bootstrap-5.3.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./library/bootstrap-5.3.1-dist/js/bootstrap.js">
+  <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+  </div> 
+  <script>
+    let checkCount = false;
+    function scrollCheck() {
+      if(checkCount === true) {
+        return;
+      }
+      const boxScrollValue = document.querySelector('.lorem').scrollTop;
+      const totalBoxScrollValue = document.querySelector('.lorem').scrollHeight;
+      const visualHeight = document.querySelector('.lorem').clientHeight;
+      console.log(boxScrollValue);
+      if((boxScrollValue+visualHeight) == totalBoxScrollValue) {
+        alert('check');
+        checkCount = true;
+      }
+    };
+    document.querySelector('.lorem').addEventListener('scroll', scrollCheck)
+  </script>
+
+
+<div class="top-logo">
+  <h1 class="top-logo-letter">짝아요</h1>
+</div>
+
+<script>
+  window.addEventListener('scroll', function(){
+  // console.log(window.scrollY);
+  if (window.scrollY > 140) {
+    document.getElementsByClassName('top-logo-letter')[0].style.fontSize = '20px';
+  } else {
+    document.getElementsByClassName('top-logo-letter')[0].style.fontSize = '30px';
+  }
+  });
+ 
+</script>
+
+
+
+
+
+
+
+  <div class="slide-top" menu="0">
+    <div class="slide-container">
+      <div class="slide-box">1</div>
+      <div class="slide-box">2</div>
+      <div class="slide-box">3</div>
+    </div>
+  </div>
+  <button id="btn-1" class="btn-num">1</button>
+  <button id="btn-2" class="btn-num">2</button>
+  <button id="btn-3" class="btn-num">3</button>
+  <button id="front">앞으로</button>
+  <button id="back">뒤로</button>
+<script>
+  document.getElementById('front').addEventListener('click', () => {
+    // let nextMenuNum = menuNum + 100;
+    const menu = document.getElementsByClassName('slide-top')[0].getAttribute('menu');
+    const menuNum = parseInt(menu);
+    // move(nextMenuNum);
+    move(menuNum+100);
+  })
+  let menuNum = 0;
+  let nextMenuNum
+
+  document.getElementById('btn-1').addEventListener('click', () => move(0));
+  document.getElementById('btn-2').addEventListener('click', () => move(100));
+  document.getElementById('btn-3').addEventListener('click', () => move(200));
+  function move(val) {
+    const style = document.getElementsByClassName('slide-container')[0].style;
+    style.transform = `translateX(-${val}vw)`;
+  //   menuNum = val;
+    document.getElementsByClassName('slide-top')[0].setAttribute('menu', val+'')
+  }
+  function move2() {
+    a-= 100;
+    let width = document.getElementsByClassName('slide-container')[0].style.transform;
+    width = `translateX(-${a}vw)`
+  }
+</script>
+
+
+<script>
+  function converter(min, sec) {
+    let transTime = (min*60 + sec) * 1000;
+    return transTime + 'ms'
+  }
+  function discount(price, boolean) {
+    let discountPrice = price * 0.9;
+    if(boolean) {
+      return (discountPrice-1.5).toFixed(2);
+    } else {
+      return discountPrice.toFixed(2);
+    }
+
+  }
+</script>
+
+
+
+
+
+
+
+  <div id="con">
+    <span id="con-num">5</span>초 후에 사라집니다.
+  </div>
+  <script>
+    setInterval(miner, 1000)
+    function miner() {
+     let number1 = document.getElementById('con-num').innerHTML;
+     number1 = number1 - 1;
+     document.getElementById('con-num').innerHTML = number1;
+     if(number1 <= 0) {
+      document.getElementById('con').style.display = 'none';
+     }
+     return number1
+    }
+  </script>
+
+
+  <p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script>
+  document.getElementById('send-answer').addEventListener('click', () => {
+    if(document.getElementById('answer').value == 1335) {
+      alert('성공');
+    } else if(clickCount >=3 && document.getElementById('answer').value !== 1335) {
+      alert('빡대가리입니다');
+    }
+    else {
+      alert('오답');
+    } 
+  });
+  let clickCount = 0;
+  document.getElementById('send-answer').addEventListener('click', () => {
+    clickCount += 1;
+  })
+
+
+</script>
+
+
+
+  <span id="dark" class="badge bg-dark">Dark 🔄</span>
+  <script>
+    let count = 0;
+    document.getElementById('dark').addEventListener('click', () => {
+      count += 1;
+      console.log(count);
+      if (count % 2 == 0) {
+        document.getElementById('dark').innerHTML = 'Light';
+      } else {
+        document.getElementById('dark').innerHTML = 'Dark';
+      }
+    });
+
+
+  </script>
+
+  <div class="black-bg">
+    <div class="white-bg">
+      <form action="success.html">
+        <div class="my-3">
+          <input type="text" class="form-control">
+        </div>
+        <div class="my-3">
+          <input type="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">전송</button>
+        <button type="button" class="btn btn-danger" id="close">닫기</button>
+      </form>
+    </div>
+  </div>
+  <button class="modal-button">
+    modal button
+  </button>
+  <script>
+    let a1 = document.getElementsByClassName('form-control')[0];
+    let b1 = document.getElementsByClassName('form-control')[1];
+    let a = "";
+    let b = "";
+    a1.addEventListener('input', () => {
+      a = a1.value;
+    });
+    b1.addEventListener('input', () => {
+      b = b1.value;
+    });
+    document.getElementsByClassName('btn-primary')[0].addEventListener('click', () => {
+      if (a === "") {
+        event.preventDefault();
+        alert('아디를 입력해라!');
+        return;
+      } else if (!/\S+@\S+\.\S+/.test(a)) {
+        event.preventDefault();
+        alert('it\'s not E-mail')
+      } else if (b === "") {
+        event.preventDefault();
+        alert('비밀번호를 입력해라!');
+        return;
+      } else if (!/[A-Z]+/.test(b)) {
+          event.preventDefault();
+          alert('비번에 대문자없다');
+        } else if (b.length < 6) {
+        event.preventDefault();
+        alert('비밀번호가 짧다!');
+        return;
+      }
+    });
+  </script>
+
+<!--   
+      function check(a) {
+   	   if (a === "") {
+        return '아디를 입력해라!';
+      } else if (!/\S+@\S+\.\S+/.test(a)) {
+        return 'it\'s not E-mail';
+      } else if (b === "") {
+       return'비밀번호를 입력해라!';
+        return
+      } else if (b.length < 6) {
+        return '비밀번호가 짧다!';
+      }
+  }
+   document.getElementsByClassName('btn-primary')[0].addEventListener('click', () => {
+     let errorMessage = check(a);
+     if(errorMessage !== '') {
+       event.preventDefault();
+       alert(errorMessage);
+       return;
+     }
+     
+     
+    }); -->
+
+  <script>
+    document.getElementsByClassName('modal-button')[0].addEventListener('click', () => {
+      document.querySelectorAll('.black-bg')[0].style.display = 'block';
+    });
+    document.getElementById('close').addEventListener('click', () => {
+      document.querySelectorAll('.black-bg')[0].style.display = 'none';
+    });
+  </script>
+
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">Navbar</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>
+
+
+  <h1 id="hi">Hello</h1>
+  <h1 id="newbe">I'm noob.</h1>
+
+  <div id="ab" class="alert-box">
+    <div>
+      <span class="fw-bolder">alert-head!</span>
+      <span>Something Wrong!</span>
+    </div>
+    <button class="x-button" onclick="none()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <button onclick="display()">
+    button
+  </button>
+  <button onclick="id2()">ID</button>
+  <button onclick="pw()">Password</button>
+
+  <script>
+    // document.getElementById('hi').innerHTML= 'hi';
+    document.getElementById('newbe').innerHTML = 'I am hard.';
+    document.getElementById('hi').style.fontSize = '16px';
+    function none() {
+      document.getElementById('ab').style.display = 'none';
+    }
+    function display() {
+      document.getElementById('ab').style.display = 'flex';
+    }
+
+    function id2() {
+      document.getElementById('ab').innerHTML = '아이디를 입력하세요';
+    }
+
+    function pw() {
+      document.getElementById('ab').innerHTML = '비밀번호를 입력하세요';
+    }
+    document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', () => {
+      document.getElementsByClassName('list-group')[0].classList.toggle('show');
+    });
+
+    document.querySelectorAll('.list-group')[0].addEventListener('click', () => {
+      document.querySelectorAll('.list-group')[0].classList.toggle('show');
+    });
+
+
+    function game(num) {
+      if (num % 9 === 0) {
+        console.log('박수x2');
+      }
+      else if (num % 3 === 0) {
+        console.log('박수');
+      } else {
+        console.log('통과');
+      }
+    }
+    function passFail(score1, score2) {
+      let totalScore = score1 + score2;
+      if (totalScore >= 120 && score1 > 40 && score2 > 40) {
+        console.log('pass');
+      } else {
+        console.log('fail');
+      }
+    }
+
+    let age = 27;
+    const myPlace = 'gimpo';
+
+    function calc(money, percent, year) {
+      for(let i = 0; i < year; i++) {
+        let interestAmount = money * (percent/100);
+        money = interestAmount + money;
+      }
+      return money;
+    }
+
+    function coffee(capacity) {
+      let total = capacity+(capacity*(2/3))+(capacity*(2/3))*(2/3);
+      return total;
+    }
+  </script>
+</body>
+
+</html>
